@@ -1,19 +1,11 @@
-
-  # You may assume the node class is:
-  # class LLNode {
-  #   constructor(value, next = null) {
-  #     this.value = value;
-  #     this.next = next;
-  #   }
-  # }
-  
-
 # Steps:
-# 1: Determine Length of Linked List/determine index of middle node
-# 2: Update 'next' attribute of previous node to skip over middle node
+# 1: Define Node and LinkedList classes
+# 2: Create functions to check length, if empty, and ability to add and clear nodes from the LinkedList
+# 3: Utilize Length of Linked List to identify the index of node immediately preceeding the middle node
+# 4: Update 'next' attribute of aforementioned node to skip over middle node
 
 class Node
-    
+
   attr_accessor :data, :next
 
   def initialize(data, next_node = nil)
@@ -28,9 +20,7 @@ class LinkedList
   end
 
   def is_empty?
-    return true if @head.nil?
-
-    false
+    @head.nil?
   end
 
   def push(data)
@@ -45,12 +35,12 @@ class LinkedList
   end
 
   def length
-    if self.is_empty?
+    if is_empty?
       size = 0
     else
       size = 1
       current_node = @head
-      while !current_node.next.nil?
+      until current_node.next.nil?
         size += 1
         current_node = current_node.next
       end
